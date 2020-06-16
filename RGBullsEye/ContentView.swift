@@ -62,11 +62,13 @@ struct ContentView: View {
                     ColorSlider(value: $gGuess, textColor: .green)
                     ColorSlider(value: $bGuess, textColor: .blue)
                 }.padding(.horizontal)
-                    .navigationBarTitle("", displayMode: .inline)
-                    .navigationBarHidden(true)
+                    
+                // Calls BullsEye
+                NavigationLink(destination: ViewControllerRepresentation()) {
+                  Text("Play BullsEye")
+                }.padding(.bottom)
             }
         }
-        //        .environment(\.colorScheme, .dark)
     }
 }
 
@@ -80,15 +82,13 @@ struct ContentView_Previews: PreviewProvider {
 
 struct ColorSlider: View {
     @Binding var value: Double
-    var textColor: Color
+    var textColor: UIColor
     
     var body: some View {
         HStack {
-            Text("0").foregroundColor(textColor)
-            Slider(value: $value)
-                .background(textColor)
-                .cornerRadius(10)
-            Text("255").foregroundColor(textColor)
+            Text("0").foregroundColor(Color(textColor))
+            ColorUISlider(color: textColor, value: $value)
+            Text("255").foregroundColor(Color(textColor))
         }
     }
 }
