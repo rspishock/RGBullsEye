@@ -8,6 +8,7 @@
 
 import SwiftUI
 
+// Creates a slider view
 struct ColorUISlider: UIViewRepresentable {
     
     class Coordinator: NSObject {

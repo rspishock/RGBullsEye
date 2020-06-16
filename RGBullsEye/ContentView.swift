@@ -75,7 +75,6 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView(rGuess: 0.5, gGuess: 0.5, bGuess: 0.5).previewLayout(.fixed(width: 568, height: 320))  // Simulates iPhone SE in landscape mode
-//            .environment(\.colorScheme, .dark)
     }
 
 }
@@ -87,6 +86,7 @@ struct ColorSlider: View {
     var body: some View {
         HStack {
             Text("0").foregroundColor(Color(textColor))
+            // call slider view from ColorUISlider.swift
             ColorUISlider(color: textColor, value: $value)
             Text("255").foregroundColor(Color(textColor))
         }
